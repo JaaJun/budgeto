@@ -3,8 +3,14 @@ import 'Pages/home_page.dart';
 import 'Pages/profile_page.dart';
 import 'Pages/budget_page.dart';
 import 'Pages/stats_page.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+// ...
+
+void main() async {
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
   runApp(const MyApp());
 }
 
