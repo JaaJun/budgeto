@@ -11,7 +11,7 @@ void main() {
 List pages = [
   const HomePage(),
   const BudgetPage(),
-  const StatsPage(),
+  const StatsPage(expenseList: []),
   const ProfilePage(),
 ];
 
