@@ -1,4 +1,6 @@
 import 'package:budgeto/util/dialog_box.dart';
+import 'package:budgeto/util/logout_button.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../util/expense_tile.dart';
 // import 'stats_page.dart';
@@ -29,6 +31,7 @@ class _HomePageState extends State<HomePage> {
           dateController: dateController,
           amountController: amountController,
           onSave: () {
+            if (!mounted) return;
             setState(() {
               expenseList.add([
                 titleController.text,
@@ -51,6 +54,7 @@ class _HomePageState extends State<HomePage> {
 
   void saveNewRecord() {
     // Logic to save a new record goes here
+    if (!mounted) return;
     setState(() {
       // Update state with new record
       expenseList.add([
@@ -88,21 +92,37 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser;
     return Scaffold(
       body: Column(
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Text(
+                'Logged in as: ' + (user?.email ?? ''),
+              ), // Show nothing if no user
+              SizedBox(width: 10),
+              LogoutButton(
+                onLogout: () {
+                  if (!mounted) return;
+                  setState(() {});
+                },
+              ),
+            ],
+          ),
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                height: MediaQuery.of(context).size.height * 0.2,
+                height: MediaQuery.of(context).size.height * 0.1,
                 width: MediaQuery.of(context).size.width * 0.4,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   border: Border.all(color: Colors.green[100]!, width: 3),
                 ),
-                padding: EdgeInsets.all(25),
-                margin: EdgeInsets.only(top: 50),
+                padding: EdgeInsets.all(20),
+                // margin: EdgeInsets.only(top: 50),
                 child: Column(
                   children: [
                     Text("Remaining:"),
@@ -117,14 +137,14 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               Container(
-                height: MediaQuery.of(context).size.height * 0.2,
+                height: MediaQuery.of(context).size.height * 0.1,
                 width: MediaQuery.of(context).size.width * 0.4,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   border: Border.all(color: Colors.red[100]!, width: 3),
                 ),
-                padding: EdgeInsets.all(25),
-                margin: EdgeInsets.only(top: 50),
+                padding: EdgeInsets.all(20),
+                // margin: EdgeInsets.only(top: 50),
                 child: Column(
                   children: [
                     Text("Spent:"),
@@ -172,15 +192,6 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(
-          //     builder:
-          //         (context) => StatsPage(
-          //           expenseList: expenseList,
-          //         ), // Passing the actual list
-          //   ),
-          // );
           showDialog(
             context: context,
             builder: (context) {

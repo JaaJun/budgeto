@@ -1,10 +1,11 @@
+import 'package:budgeto/Pages/auth_page.dart';
 import 'package:flutter/material.dart';
 import 'Pages/home_page.dart';
-import 'Pages/profile_page.dart';
 import 'Pages/budget_page.dart';
 import 'Pages/stats_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'Pages/login_page.dart';
 
 // ...
 
@@ -18,7 +19,6 @@ List pages = [
   const HomePage(),
   const BudgetPage(),
   const StatsPage(expenseList: []),
-  const ProfilePage(),
 ];
 
 class MyApp extends StatelessWidget {
@@ -29,7 +29,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MainNavigation(),
+      // home: MainNavigation(),
+      home: AuthPage(),
     );
   }
 }
@@ -60,7 +61,6 @@ class _MainNavigationState extends State<MainNavigation> {
             label: "Budget",
           ),
           NavigationDestination(icon: Icon(Icons.bar_chart), label: "Stats"),
-          NavigationDestination(icon: Icon(Icons.person), label: "Profile"),
         ],
         selectedIndex: _selectedIndex,
         onDestinationSelected: _onItemTapped,

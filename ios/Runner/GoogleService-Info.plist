@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>767492699676-qoja9rcesroaqiikc6fb5v3602jnp948.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.767492699676-qoja9rcesroaqiikc6fb5v3602jnp948</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>767492699676-mbk7na7rsckc892q9a1ma4chcisfl2qp.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCBG2Uccp-rSeW0cLQ58ye24MlHiooeRX0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>767492699676</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.budgeto</string>
+	<key>PROJECT_ID</key>
+	<string>budgeto-0</string>
+	<key>STORAGE_BUCKET</key>
+	<string>budgeto-0.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:767492699676:ios:5afae4a3cd798dfe8051d9</string>
+</dict>
+</plist>
